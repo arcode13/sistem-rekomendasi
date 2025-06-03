@@ -23,7 +23,7 @@ Sistem ini dikembangkan menggunakan Python dengan beberapa pustaka utama
 **Alur Kerja Aplikasi**
 
 1.  **Pemuatan dan Pra-pemrosesan Data**
-    * Laoad dataset CSV secara otomatis.
+    * Load dataset CSV secara otomatis.
     * Data dibersihkan: kolom numerik dikonversi, karakter non-numerik dihapus, dan nilai yang hilang ditangani.
 2.  **Pemilihan Pengguna**
     * Pengguna memilih genre film dan metrik kinerja (misalnya, "Pendapatan Kotor Disesuaikan Inflasi", "Tiket Terjual") yang ingin dianalisis.
@@ -57,7 +57,7 @@ Sistem ini dikembangkan menggunakan Python dengan beberapa pustaka utama
 
 2.  **Klon Repositori**
     ```bash
-    git clone [https://github.com/arcode13/sistem-rekomendasi](https://github.com/arcode13/sistem-rekomendasi)
+    git clone https://github.com/arcode13/sistem-rekomendasi
     cd sistem-rekomendasi
     ```
 
