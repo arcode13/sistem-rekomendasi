@@ -12,7 +12,7 @@ Proyek ini bertujuan untuk menganalisis tren historis genre film dan memprediksi
 
 ## Metodologi dan Implementasi
 
-Sistem ini dikembangkan menggunakan Python dengan beberapa pustaka utama:
+Sistem ini dikembangkan menggunakan Python dengan beberapa pustaka utama
 
 * **Streamlit:** Untuk membangun antarmuka pengguna grafis (GUI) berbasis web.
 * **Pandas & NumPy:** Untuk manipulasi, pembersihan, dan pra-pemrosesan data.
@@ -20,23 +20,23 @@ Sistem ini dikembangkan menggunakan Python dengan beberapa pustaka utama:
 * **Scikit-learn:** Untuk normalisasi data (menggunakan `MinMaxScaler`).
 * **TensorFlow (Keras API):** Untuk membangun, melatih, dan melakukan prediksi dengan model *deep learning* LSTM.
 
-**Alur Kerja Aplikasi:**
+**Alur Kerja Aplikasi**
 
-1.  **Pemuatan dan Pra-pemrosesan Data:**
+1.  **Pemuatan dan Pra-pemrosesan Data**
     * Laoad dataset CSV secara otomatis.
     * Data dibersihkan: kolom numerik dikonversi, karakter non-numerik dihapus, dan nilai yang hilang ditangani.
-2.  **Pemilihan Pengguna:**
+2.  **Pemilihan Pengguna**
     * Pengguna memilih genre film dan metrik kinerja (misalnya, "Pendapatan Kotor Disesuaikan Inflasi", "Tiket Terjual") yang ingin dianalisis.
-3.  **Analisis Tren Historis:**
+3.  **Analisis Tren Historis**
     * Grafik garis interaktif menampilkan tren historis dari metrik yang dipilih untuk genre tersebut.
-4.  **Pemodelan Prediktif dengan LSTM:**
+4.  **Pemodelan Prediktif dengan LSTM**
     * **Model:** Jaringan Long Short-Term Memory (LSTM) dipilih karena kemampuannya dalam menangani data sekuensial dan deret waktu, serta mempelajari dependensi jangka panjang.
     * **Persiapan Data:** Data metrik yang dipilih dinormalisasi ke rentang [0, 1]. Kemudian, data diubah menjadi format sekuens input-output untuk pelatihan LSTM.
     * **Arsitektur Model:** Model LSTM sederhana dengan satu lapisan LSTM diikuti oleh satu lapisan Dense untuk output.
     * **Pelatihan:** Model dilatih menggunakan data historis dari genre yang dipilih.
     * **Prediksi:** Model menghasilkan prediksi untuk beberapa tahun ke depan.
     * **Visualisasi Prediksi:** Prediksi ditampilkan pada grafik yang sama dengan data historis, serta dalam bentuk tabel.
-5.  **Rekomendasi Film Teratas:**
+5.  **Rekomendasi Film Teratas**
     * Menampilkan daftar film teratas (`Top Movie`) dari genre yang dipilih berdasarkan data historis.
 
 ## Fitur Aplikasi
@@ -78,7 +78,7 @@ Sistem ini dikembangkan menggunakan Python dengan beberapa pustaka utama:
     * Pastikan file dataset berada di direktori yang sama dengan file `app.py`.
 
 5.  **Jalankan Aplikasi Streamlit**
-    Jika file utama Anda bernama `app.py`:
+    Jika file utama Anda bernama `app.py`
     ```bash
     streamlit run app.py
     ```
