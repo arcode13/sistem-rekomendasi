@@ -51,43 +51,44 @@ Sistem ini dikembangkan menggunakan Python dengan beberapa pustaka utama:
 
 ## Cara Menjalankan Aplikasi
 
-1.  **Prasyarat:**
+1.  **Prasyarat**
     * Python 3.7 atau lebih tinggi.
     * `pip` (Python package installer).
 
-2.  **Klon Repositori (Jika sudah diunggah ke GitHub):**
+2.  **Klon Repositori**
     ```bash
     git clone [https://github.com/arcode13/sistem-rekomendasi](https://github.com/arcode13/sistem-rekomendasi)
-    cd [sistem-rekomendasi]
+    cd sistem-rekomendasi
     ```
 
-3.  **Instal Dependensi:**
+3.  **Instal Dependensi**
     Disarankan untuk membuat *virtual environment*.
     ```bash
     python -m venv venv
     source venv/bin/activate  # Untuk Linux/macOS
     # venv\Scripts\activate    # Untuk Windows
     ```
-    Kemudian instal dependensi:
+    Kemudian instal dependensi
     ```bash
     pip install -r requirements.txt
     ```
 
-4.  **Siapkan Dataset:**
+4.  **Siapkan Dataset**
     * Unduh dataset `ThrowbackDataThursday Week 11 - Film Genre Stats.csv` dari [Kaggle](https://www.kaggle.com/datasets/thedevastator/film-genre-statistics/data).
     * Pastikan file dataset berada di direktori yang sama dengan file `app.py`.
 
-5.  **Jalankan Aplikasi Streamlit:**
+5.  **Jalankan Aplikasi Streamlit**
     Jika file utama Anda bernama `app.py`:
     ```bash
     streamlit run app.py
     ```
     Aplikasi akan terbuka secara otomatis di browser web Anda.
 
-## Struktur File (Saran)
+## Struktur File
 
-
+```
 .
 ├── app.py                                  # Kode utama aplikasi Streamlit
 ├── "ThrowbackDataThursday Week 11 - Film Genre Stats.csv"  # File dataset
 └── requirements.txt                        # Daftar dependensi Python
+```
