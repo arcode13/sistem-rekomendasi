@@ -37,20 +37,20 @@ Sistem ini dikembangkan menggunakan Python dengan beberapa pustaka utama
     * **Prediksi:** Model menghasilkan prediksi untuk beberapa tahun ke depan.
     * **Visualisasi Prediksi:** Prediksi ditampilkan pada grafik yang sama dengan data historis, serta dalam bentuk tabel.
 
-    **Algoritma Matematika LSTM yang Digunakan:**
+    **Algoritma Matematika LSTM yang Digunakan**
 
-    * **Normalisasi Data (Min-Max Scaling):**
-        Sebelum data dimasukkan ke model LSTM, data metrik kinerja (misalnya, $X_{\text{metrik}}$) dinormalisasi ke rentang $[0, 1]$:
+    * **Normalisasi Data (Min-Max Scaling)**
+        Sebelum data dimasukkan ke model LSTM, data metrik kinerja (misalnya, $X_{\text{metrik}}$) dinormalisasi ke rentang $[0, 1]$
         $X_{\text{scaled}} = \frac{X - X_{\min}}{X_{\max} - X_{\min}}$
         Di mana $X$ adalah nilai asli, $X_{\min}$ adalah nilai minimum, dan $X_{\max}$ adalah nilai maksimum dalam data metrik tersebut.
 
-    * **Pembuatan Sekuens (Sequence Creation):**
-        Data deret waktu $S = (s_1, s_2, \dots, s_T)$ diubah menjadi pasangan input ($X$) dan output ($y$) dengan panjang sekuens input `n_steps`:
+    * **Pembuatan Sekuens (Sequence Creation)**
+        Data deret waktu $S = (s_1, s_2, \dots, s_T)$ diubah menjadi pasangan input ($X$) dan output ($y$) dengan panjang sekuens input `n_steps`
         Input $X_i = (s_i, s_{i+1}, \dots, s_{i+n\_steps-1})$
         Output $y_i = s_{i+n\_steps}$
 
-    * **Arsitektur Sel LSTM (LSTM Cell):**
-        Pada setiap langkah waktu $t$, sel LSTM menerima input $x_t$, status tersembunyi sebelumnya $h_{t-1}$, dan status sel sebelumnya $C_{t-1}$. Persamaan utama untuk satu sel LSTM adalah:
+    * **Arsitektur Sel LSTM (LSTM Cell)**
+        Pada setiap langkah waktu $t$, sel LSTM menerima input $x_t$, status tersembunyi sebelumnya $h_{t-1}$, dan status sel sebelumnya $C_{t-1}$. Persamaan utama untuk satu sel LSTM adalah
         * **Forget Gate ($f_t$):**
             $f_t = \sigma(W_f \cdot [h_{t-1}, x_t] + b_f)$
         * **Input Gate ($i_t$) dan Kandidat Nilai Sel ($\tilde{C}_t$):**
@@ -63,19 +63,19 @@ Sistem ini dikembangkan menggunakan Python dengan beberapa pustaka utama
             $h_t = o_t \odot \tanh(C_t)$
         Di mana $\sigma$ adalah fungsi sigmoid, $\tanh$ adalah fungsi tangen hiperbolik, $W$ adalah matriks bobot, $b$ adalah vektor bias, dan $\odot$ adalah perkalian elemen-demi-elemen. Parameter $W$ dan $b$ dipelajari selama pelatihan.
 
-    * **Lapisan Output (Dense Layer):**
-        Output dari lapisan LSTM terakhir ($h_{\text{final}}$) dimasukkan ke lapisan Dense untuk prediksi akhir:
+    * **Lapisan Output (Dense Layer)**
+        Output dari lapisan LSTM terakhir ($h_{\text{final}}$) dimasukkan ke lapisan Dense untuk prediksi akhir
         $y_{\text{pred}} = W_d \cdot h_{\text{final}} + b_d$
 
-    * **Fungsi Kerugian (Loss Function):**
-        *Mean Squared Error* (MSE) digunakan untuk mengukur kesalahan prediksi:
+    * **Fungsi Kerugian (Loss Function)**
+        *Mean Squared Error* (MSE) digunakan untuk mengukur kesalahan prediksi
         $MSE = \frac{1}{N} \sum_{i=1}^{N} (y_{\text{true},i} - y_{\text{pred},i})^2$
 
-    * **Optimasi:**
+    * **Optimasi**
         Model dilatih untuk meminimalkan MSE menggunakan optimizer seperti Adam, dengan *Backpropagation Through Time* (BPTT) untuk menghitung gradien.
 
-    * **Denormalisasi Prediksi:**
-        Prediksi yang dihasilkan oleh model (yang berada dalam skala $[0, 1]$) dikembalikan ke skala aslinya:
+    * **Denormalisasi Prediksi**
+        Prediksi yang dihasilkan oleh model (yang berada dalam skala $[0, 1]$) dikembalikan ke skala aslinya
         $X_{\text{original}} = X_{\text{scaled}} \cdot (X_{\max} - X_{\min}) + X_{\min}$
 5.  **Rekomendasi Film Teratas**
     * Menampilkan daftar film teratas (`Top Movie`) dari genre yang dipilih berdasarkan data historis.
